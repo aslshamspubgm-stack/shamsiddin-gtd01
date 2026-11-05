@@ -1,0 +1,45 @@
+{
+  "name": "shams-gtd-desktop",
+  "version": "1.0.0",
+  "description": "SHAMS GTD desktop productivity app for Windows",
+  "main": "main.js",
+  "author": "SHAMS GTD",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.shamsgtd.desktop",
+    "productName": "SHAMS GTD",
+    "asar": true,
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "package.json",
+      "app/**/*",
+      "!app/README.md",
+      "!app/sw.js",
+      "!app/manifest.webmanifest"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": ["nsis"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "SHAMS GTD"
+    }
+  }
+}

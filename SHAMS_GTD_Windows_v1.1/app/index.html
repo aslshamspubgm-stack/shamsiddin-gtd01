@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101827"><meta name="description" content="SHAMS GTD — capture, organize and get things done.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <title>SHAMS GTD — Personal Productivity</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home"><span class="sun">☼</span><span>SHAMS <small>GTD</small></span></a>
+      <div class="nav-label" data-i18n="workspace">WORKSPACE</div>
+      <nav id="nav">
+        <button class="nav-item active" data-view="home">⌂ <span data-i18n="overview">Overview</span></button>
+        <button class="nav-item" data-view="inbox">↧ <span data-i18n="inbox">Inbox</span><b id="inboxCount">0</b></button>
+        <button class="nav-item" data-view="next">◷ <span data-i18n="nextActions">Next actions</span></button>
+        <button class="nav-item" data-view="projects">▦ <span data-i18n="projects">Projects</span></button>
+        <button class="nav-item" data-view="waiting">Ⅱ <span data-i18n="waiting">Waiting for</span></button>
+        <button class="nav-item" data-view="someday">☾ <span data-i18n="someday">Someday / Maybe</span></button>
+        <button class="nav-item" data-view="done">✓ <span data-i18n="completed">Completed</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button id="themeBtn" class="nav-item">◐ <span data-i18n="toggleTheme">Toggle theme</span></button>
+        <p>CLARITY · FOCUS · ACTION</p>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="mobile-menu" aria-label="Open menu">☰</button>
+        <div class="heading"><div class="eyebrow" data-i18n="personalWorkspace">YOUR PERSONAL WORKSPACE</div><h1 id="pageTitle">Overview</h1></div>
+        <div class="top-actions"><label class="language-label"><span data-i18n="language">Language</span><select id="languageSelect" aria-label="Language"><option value="en">English</option><option value="ru">Русский</option><option value="uz">O‘zbekcha</option></select></label><button id="quickAdd" class="primary">＋ <span data-i18n="newTask">New task</span></button></div>
+      </header>
+      <section id="view" class="view" aria-live="polite"></section>
+      <footer>SHAMS GTD <span data-i18n="tagline">Take control of your day.</span></footer>
+    </main>
+  </div>
+  <dialog id="taskDialog"><form id="taskForm" method="dialog"><div class="dialog-head"><h2 data-i18n="captureTask">Capture a task</h2><button type="button" class="icon-btn" id="closeDialog" aria-label="Close">✕</button></div>
+    <label><span data-i18n="whatToDo">What needs to be done?</span><input id="taskTitle" required maxlength="120" placeholder="e.g. Prepare project presentation"></label>
+    <div class="form-grid"><label><span data-i18n="list">List</span><select id="taskList"><option value="inbox" data-i18n="inbox">Inbox</option><option value="next" data-i18n="nextAction">Next action</option><option value="waiting" data-i18n="waiting">Waiting for</option><option value="someday" data-i18n="someday">Someday / Maybe</option></select></label><label><span data-i18n="priority">Priority</span><select id="taskPriority"><option value="normal" data-i18n="normal">Normal</option><option value="high" data-i18n="high">High</option><option value="low" data-i18n="low">Low</option></select></label></div>
+    <label><span data-i18n="dueDate">Due date</span><input id="taskDate" type="date"></label><label><span data-i18n="projectOptional">Project (optional)</span><input id="taskProject" maxlength="60" placeholder="Project name"></label>
+    <button class="primary full" type="submit" data-i18n="saveTask">Save task</button>
+  </form></dialog>
+  <script src="app.js"></script>
+</body></html>
